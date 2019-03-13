@@ -1,0 +1,16 @@
+{
+    "name": "optime/billsdk",
+    "description": "Bill SDK test.",
+    "type": "library",
+    "license": "propietary",
+    "authors": [
+        {
+            "name": "Mario Gonzalez",
+            "email": "mgonzalez@optimeconsulting.com"
+        }
+    ],
+    "minimum-stability": "beta",
+    "require": {
+        "guzzlehttp/guzzle": "^6.3"
+    }
+}
