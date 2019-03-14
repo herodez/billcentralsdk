@@ -1,16 +1,31 @@
 {
-    "name": "optime/billsdk",
-    "description": "Bill SDK test.",
+    "name": "optime/billSDK",
+    "description": "BillSDK is a collection of library to interact with bill-central platform",
+    "keywords": [
+        "SDK",
+        "Bill-central",
+        "HTTP",
+        "Client"
+    ],
     "type": "library",
-    "license": "propietary",
+    "license": "proprietary",
     "authors": [
         {
             "name": "Mario Gonzalez",
             "email": "mgonzalez@optimeconsulting.com"
+        },
+        {
+            "name": "Hermes Gonzalez",
+            "email": "hgonzalez@optimeconsulting.com"
         }
     ],
-    "minimum-stability": "beta",
     "require": {
         "guzzlehttp/guzzle": "^6.3"
+    },
+    "autoload": {
+        "psr-4": {
+            "BillSDK\\": "src/"
+        },
+        "files": ["src/Support/helpers.php"]
     }
 }
