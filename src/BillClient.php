@@ -30,6 +30,14 @@ class BillClient
 	}
 	
 	// TODO: Validate if the following methods are necessary.
+	/**
+	 * Validate a bill code pass.
+	 *
+	 * @param $bill
+	 * @return mixed
+	 * @throws BillNotFoundException
+	 * @throws \GuzzleHttp\Exception\GuzzleException
+	 */
 	public function validateBill($bill)
 	{
 		$response = $this->client->makeRequest('POST', config('config.endpoints.validateBill'),[
@@ -43,6 +51,14 @@ class BillClient
 		return $response;
 	}
 	
+	/**
+	 * Redeem a bill by it's transaction code.
+	 *
+	 * @param $transactionCode
+	 * @return mixed
+	 * @throws InvalidTransactionCodeException
+	 * @throws \GuzzleHttp\Exception\GuzzleException
+	 */
 	public function redeemBill($transactionCode)
 	{
 		$response = $this->client->makeRequest('POST', config('config.endpoints.redeemBill'),[
@@ -56,6 +72,15 @@ class BillClient
 		return $response;
 	}
 	
+	/**
+	 * Validate and redeem a bill code.
+	 *
+	 * @param $bill
+	 * @return mixed
+	 * @throws BillNotFoundException
+	 * @throws InvalidTransactionCodeException
+	 * @throws \GuzzleHttp\Exception\GuzzleException
+	 */
 	public function validateAndRedeemCode($bill)
 	{
 		$response = $this->validateBill($bill);
