@@ -1,6 +1,7 @@
 {
     "name": "optime/billSDK",
     "description": "BillSDK is a collection of library to interact with bill-central platform",
+    "version":"dev-master",
     "keywords": [
         "SDK",
         "Bill-central",
