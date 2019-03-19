@@ -9,8 +9,8 @@ This repository contains a SDK that allows you to access the Bill-Central Platfo
 The Bill-Central PHP SDK can be installed with [Composer](https://getcomposer.org/). making the following configurations
 in your **composer.json** file:
 
-```yaml
- "require": {
+```json
+ "require":{
     "optime/billCentralSDK":"dev-master"
  },
  "config":{
