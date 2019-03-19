@@ -1,6 +1,6 @@
 {
-    "name": "optime/billSDK",
-    "description": "BillSDK is a collection of library to interact with bill-central platform",
+    "name": "optime/billCentralSDK",
+    "description": "BillCentralSDK is a collection of library to interact with Bill-Central platform",
     "version":"dev-master",
     "keywords": [
         "SDK",
@@ -25,8 +25,7 @@
     },
     "autoload": {
         "psr-4": {
-            "BillSDK\\": "src/"
-        },
-        "files": ["src/Support/helpers.php"]
+            "BillCentralSDK\\": "src/"
+        }
     }
 }
