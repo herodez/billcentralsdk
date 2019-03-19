@@ -11,7 +11,7 @@ The following examples demonstrate how you would accomplish common tasks with th
 - **Create a Bill-Central client**
   - [Bill-Central Client](./examples/bc_client.md)
 - **Bill redeem**
-  - [Redeem transaction](./examples/retrieve_user_profile.md)
+  - [Redeem transaction](./examples/bc_redeem.md)
   
 ## API Reference
 
