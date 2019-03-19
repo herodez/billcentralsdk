@@ -44,8 +44,8 @@ $billCentral = new Client([
     'api_key' => '{loyalty_api_key}',
 ]);
 
-
 try {
+
     // Create a new Bill redeem transaction.
     $transaction = $billCentral->newTransaction([
         'bill' => [
@@ -54,20 +54,18 @@ try {
         ],
         'company_id' => 1
     ]);
-} catch (BillCentralSDKException $e) {
-    echo $e->getMessage();
-    die();
-}
-
-// Loyalty logic here.
-
-try {
-    // Complete the redeem transaction.
+    
+    // Loyalty logic.
+    
+    // Complete transaction redeem.
     $response = $transaction->complete([
         'id' => 30,
         'email' => 'example@test.com',
         'point_id' => 1223
     ]);
+    
+    echo "Transaction OK";
+    
 } catch (BillCentralSDKException $e) {
     echo $e->getMessage();
     die();
