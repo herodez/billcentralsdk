@@ -19,6 +19,14 @@ class BillTransaction
      * @var BillCentralGuzzleClient
      */
     private $client;
+    /**
+     * @var float transaction point quantity.
+     */
+    private $pointQuantity;
+    /**
+     * @var BillCentralResponse Object response that generate the transaction.
+     */
+    private $response;
     
     /**
      * Create a new Bill-Central transaction.
@@ -29,7 +37,10 @@ class BillTransaction
      */
     public function __construct(BillCentralResponse $response, BillCentralGuzzleClient $client)
     {
-        $this->transactionCode = $response->getData()['transaction_code'];
+        $this->response = $response;
+        $data = $response->getData();
+        $this->transactionCode = $data['transaction_code'];
+        $this->pointQuantity = $data['point_quantity'];
         $this->client = $client;
     }
     
@@ -44,6 +55,16 @@ class BillTransaction
     }
     
     /**
+     * Return transaction point quantity
+     *
+     * @return float
+     */
+    public function getPointQuantity()
+    {
+        return $this->pointQuantity;
+    }
+    
+    /**
      * Return if the transaction is completed.
      *
      * @return bool.
@@ -54,6 +75,8 @@ class BillTransaction
     }
     
     /**
+     * Finish the transaction to redeem the bill code.
+     *
      * @param $data
      * @return BillCentralResponse
      * @throws Exceptions\BillCentralResponseException
@@ -77,5 +100,13 @@ class BillTransaction
         }
         
         return $response;
+    }
+    
+    /**
+     * @return BillCentralResponse
+     */
+    public function getResponse()
+    {
+        return $this->response;
     }
 }
