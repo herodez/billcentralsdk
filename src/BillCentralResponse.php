@@ -45,7 +45,7 @@ class BillCentralResponse
         1 => 'TRANSACTION_OK',
         2 => 'BILL_CODE_NOT_FOUND',
         3 => 'BILL_CODE_USED',
-        4 => 'BILL_CoDE_EXPIRED',
+        4 => 'BILL_CODE_EXPIRED',
         5 => 'BILL_PURPOSE_INVALID',
         6 => 'BILL_COMPANY_INVALID'
     ];

@@ -27,6 +27,10 @@ class BillTransaction
      * @var BillCentralResponse Object response that generate the transaction.
      */
     private $response;
+    /**
+     * @var string bill code of the transaction.
+     */
+    private $billCode;
     
     /**
      * Create a new Bill-Central transaction.
@@ -41,6 +45,7 @@ class BillTransaction
         $data = $response->getData();
         $this->transactionCode = $data['transaction_code'];
         $this->pointQuantity = $data['point_quantity'];
+        $this->billCode = $data['bill_code'];
         $this->client = $client;
     }
     
@@ -62,6 +67,16 @@ class BillTransaction
     public function getPointQuantity()
     {
         return $this->pointQuantity;
+    }
+    
+    /**
+     * Return bill code of the transaction.
+     *
+     * @return string
+     */
+    public function getBillCode()
+    {
+        return $this->billCode;
     }
     
     /**
