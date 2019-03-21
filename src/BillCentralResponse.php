@@ -36,6 +36,7 @@ class BillCentralResponse
     const STATUS_BILL_CODE_EXPIRED = 4;
     const STATUS_BILL_PURPOSE_INVALID = 5;
     const STATUS_BILL_COMPANY_INVALID = 6;
+    const STATUS_UNKNOWN_CODE = 444;
     
     /**
      * @var array status codes translation table
@@ -47,7 +48,8 @@ class BillCentralResponse
         3 => 'BILL_CODE_USED',
         4 => 'BILL_CODE_EXPIRED',
         5 => 'BILL_PURPOSE_INVALID',
-        6 => 'BILL_COMPANY_INVALID'
+        6 => 'BILL_COMPANY_INVALID',
+        444 => 'UNKNOWN_CODE'
     ];
     
     public function __construct($httpStatus, $httpContent)

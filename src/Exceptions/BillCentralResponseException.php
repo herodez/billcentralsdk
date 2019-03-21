@@ -28,7 +28,7 @@ class BillCentralResponseException extends BillCentralSDKException
         $this->response = $response;
         $this->responseData = $response->getDecodeBody();
         $errorMessage = $this->get('error', 'Unknown error from BC.');
-        $errorCode = $this->get('status', 444);
+        $errorCode = $this->get('status', BillCentralResponse::STATUS_UNKNOWN_CODE);
         parent::__construct($errorMessage, $errorCode, $previousException);
     }
     
