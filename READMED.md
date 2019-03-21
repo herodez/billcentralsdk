@@ -62,6 +62,7 @@ try {
         'id' => 30,
         'email' => 'example@test.com',
         'point_id' => 1223
+        'company_id' => 1
     ]);
     
     echo "Transaction OK";
