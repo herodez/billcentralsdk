@@ -107,7 +107,7 @@ class BillTransaction
             throw new \InvalidArgumentException('Data must be an array.');
         }
         
-        $data = array_merge(['transaction_code' => $this->transactionCode], ['user' => $data]);
+        $data = array_merge(['transaction_code' => $this->transactionCode],  $data);
         $response = $this->client->makeRequest('POST', Client::COMPETED_TRANSACTION, $data);
         
         if ($response->getStatus() === BillCentralResponse::STATUS_TRANSACTION_OK) {
