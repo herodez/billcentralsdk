@@ -15,6 +15,7 @@ This example cover how to redeem a bill code with BC SDK.
     'id' => 30,
     'email' => 'example@test.com',
     'point_id' => 1223
+    'company_id' => 1
  ])
 ```
 The previous example use a Bill-Central client to redeem a bill code, first this create 
@@ -33,3 +34,4 @@ the data of the user and point reference.
 - id: User id reference.
 - email: User email reference.
 - point_id: User point id reference.
+- company_id: Company id reference that apply the bill code if is necessary.
