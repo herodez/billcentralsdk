@@ -9,7 +9,7 @@ class Client
     /**
      * @const string Production Bill-central API URL.
      */
-    const BASE_BC_URL = 'http://billcentral.test/api';
+    const BASE_BC_URL = 'http://billcentral.test/redeem/bill/transaction/';
     
     /**
      * @const string Default Bill-central API version for requests.
@@ -24,8 +24,8 @@ class Client
     /**
      * Endpoints constants
      */
-    const NEW_TRANSACTION = 'validate';
-    const COMPETED_TRANSACTION = 'redeem';
+    const NEW_TRANSACTION = 'new';
+    const COMPETED_TRANSACTION = 'complete';
     
     /**
      * Http client instance.
@@ -47,7 +47,7 @@ class Client
         }
         
         $options = array_merge([
-            'base_uri' => self::BASE_BC_URL . '/' . self::DEFAULT_BC_VERSION . '/',
+            'base_uri' => self::BASE_BC_URL,
             'timeout' => self::DEFAULT_REQUEST_TIMEOUT
         ], $config);
         
