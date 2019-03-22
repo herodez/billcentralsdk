@@ -9,7 +9,7 @@ class Client
     /**
      * @const string Production Bill-central API URL.
      */
-    const BASE_BC_URL = 'http://billcentral.test/redeem/bill/transaction/';
+    const BASE_BC_URL = 'http://billcenter.uatplaces.com/redeem/bill/transaction/';
     
     /**
      * @const string Default Bill-central API version for requests.
