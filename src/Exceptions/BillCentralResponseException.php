@@ -27,8 +27,8 @@ class BillCentralResponseException extends BillCentralSDKException
     {
         $this->response = $response;
         $this->responseData = $response->getDecodeBody();
-        $errorMessage = $this->get('error', 'Unknown error from BC.');
-        $errorCode = $this->get('status', BillCentralResponse::STATUS_UNKNOWN_CODE);
+        $errorMessage = $this->get('message', 'Unknown error from BC.');
+        $errorCode = $this->get('code', BillCentralResponse::STATUS_UNKNOWN_CODE);
         parent::__construct($errorMessage, $errorCode, $previousException);
     }
     
@@ -44,7 +44,7 @@ class BillCentralResponseException extends BillCentralSDKException
     {
         $code = $response->getStatus();
         $data = $response->getDecodeBody();
-        $message = isset($data['error']) ? $data['error'] : 'Unknown error from BC.';
+        $message = isset($data['error']['message']) ? $data['error']['message'] : 'Unknown error from BC.';
         
         switch ($code) {
             case BillCentralResponse::STATUS_BILL_CODE_NOT_FOUND:
@@ -114,8 +114,8 @@ class BillCentralResponseException extends BillCentralSDKException
      */
     private function get($key, $default = null)
     {
-        if (isset($this->responseData[$key])) {
-            return $this->responseData[$key];
+        if (isset($this->responseData['error'][$key])) {
+            return $this->responseData['error'][$key];
         }
         return $default;
     }

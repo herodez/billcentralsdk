@@ -6,6 +6,7 @@ use BillCentralSDK\BillCentralResponse;
 use BillCentralSDK\Exceptions\BillCentralResponseException;
 use BillCentralSDK\Exceptions\BillCentralSDKException;
 use GuzzleHttp\Client;
+use GuzzleHttp\Exception\BadResponseException;
 use GuzzleHttp\Exception\GuzzleException;
 
 class BillCentralGuzzleClient
@@ -66,16 +67,13 @@ class BillCentralGuzzleClient
     {
         try {
             $response = $this->client->request($method, $path, $this->preparedRequest($data));
+        } catch (BadResponseException $e) {
+            throw BillCentralResponseException::create(new BillCentralResponse($e->getResponse()->getStatusCode(),
+                (string) $e->getResponse()->getBody()));
         } catch (GuzzleException $exception) {
             throw new BillCentralSDKException($exception->getMessage(), $exception->getCode());
         }
         
-        $response = new BillCentralResponse($response->getStatusCode(), $response->getBody());
-        
-        if ($response->getStatus() !== BillCentralResponse::STATUS_TRANSACTION_OK) {
-            throw BillCentralResponseException::create($response);
-        }
-        
-        return $response;
+        return new BillCentralResponse($response->getStatusCode(), (string) $response->getBody());
     }
 }
