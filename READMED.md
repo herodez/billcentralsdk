@@ -11,7 +11,7 @@ in your **composer.json** file:
 
 ```json
  "require":{
-    "optime/billcentralsdk":"dev-master"
+    "optime/billcentralsdk":"dev-1.0.0"
  },
  "config":{
     "secure-http": false
