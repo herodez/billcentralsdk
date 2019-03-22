@@ -1,6 +1,6 @@
 {
-    "name": "optime/billCentralSDK",
-    "description": "BillCentralSDK is a collection of library to interact with Bill-Central platform",
+    "name": "optime/billcentral-sdk",
+    "description": "billcentral-sdk is a collection of library to interact with Bill-Central platform",
     "version":"dev-master",
     "keywords": [
         "SDK",
