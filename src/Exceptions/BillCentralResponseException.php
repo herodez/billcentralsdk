@@ -52,7 +52,7 @@ class BillCentralResponseException extends BillCentralSDKException
             case BillCentralResponse::STATUS_BILL_CODE_USED:
                 return new static($response, new BillCentralCodeUsedException($message, $code));
             case BillCentralResponse::STATUS_BILL_CODE_EXPIRED:
-                return new static($response, new BillCentralCodeExpiredException($message,$code));
+                return new static($response, new BillCentralCodeExpiredException($message, $code));
             case BillCentralResponse::STATUS_BILL_PURPOSE_INVALID:
                 return new static($response, new BillCentralPurposeInvalidException($message, $code));
             case BillCentralResponse::STATUS_BILL_COMPANY_INVALID:
@@ -60,7 +60,8 @@ class BillCentralResponseException extends BillCentralSDKException
             case BillCentralResponse::STATUS_TRANSACTION_ERROR:
                 return new static($response, new BillCentralTransactionError($message, $code));
             default:
-                return new static($response, new BillCentralOtherException($message, $code));
+                return new static($response,
+                    new BillCentralOtherException($message, BillCentralResponse::STATUS_UNKNOWN_CODE));
         }
     }
     
