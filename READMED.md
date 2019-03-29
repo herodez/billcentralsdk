@@ -6,27 +6,10 @@ This repository contains a SDK that allows you to access the Bill-Central Platfo
 
 ## Installation
 
-The Bill-Central PHP SDK can be installed with [Composer](https://getcomposer.org/). making the following configurations
-in your **composer.json** file:
-
-```json
- "require":{
-    "optime/billcentralsdk":"dev-1.0.0"
- },
- "config":{
-    "secure-http": false
- },
- "repositories": [
-      {
-        "type": "vcs",
-        "url":  "http://optgit.optimeconsulting.net:8090/mgonzalez/billcentralsdk"
-      }
- ]
-```
-and run this command
+The Bill-Central PHP SDK can be installed with [Composer](https://getcomposer.org/). run this command
 
 ```sh
-composer install optime/billCentralSDK
+composer install optime/billcentralsdk
 ```
 ## Usage
 
@@ -52,17 +35,21 @@ try {
             'code' => 'BCCO1234A324',
             'purpose' => 'training'
         ],
-        'company_id' => 1
     ]);
     
     // Loyalty logic.
     
     // Complete transaction redeem.
     $response = $transaction->complete([
-        'id' => 30,
-        'email' => 'example@test.com',
-        'point_id' => 1223
-        'company_id' => 1
+         'user' => [
+            'id' => 1,
+            'email' => 'user@example.com',
+         ],
+         'references' => [
+            'point_id' => 12,
+            'company_id' => 2,
+            'purpose' => 'Events'
+         ]
     ]);
     
     echo "Transaction OK";

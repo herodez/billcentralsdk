@@ -8,15 +8,19 @@ This example cover how to redeem a bill code with BC SDK.
         'code' => '{bill_code}',
         'purpose' => '{bill_purpous}'
     ],
-    'company_id' => '{company_id}'
  ]);
  
  $response = $transaction->complete([
-    'id' => 30,
-    'email' => 'example@test.com',
-    'point_id' => 1223
-    'company_id' => 1
- ])
+      'user' => [
+         'id' => 1,
+         'email' => 'user@example.com',
+      ],
+      'references' => [
+         'point_id' => 12,
+         'company_id' => 2,
+         'purpose' => 'Events'
+      ]
+ ]);
 ```
 The previous example use a Bill-Central client to redeem a bill code, first this create 
 a new BillTransaction with necessary bill and company data and then complete the transaction with
@@ -26,12 +30,9 @@ the data of the user and point reference.
 
 #### New transaction.
 
-- bill: Associative array that contains the bill code data.
-- company_id: Company id reference that apply the bill code if is necessary.
+- bill: Associative array that contains the bill data.
 
 #### Complete a transaction.
 
-- id: User id reference.
-- email: User email reference.
-- point_id: User point id reference.
-- company_id: Company id reference that apply the bill code if is necessary.
+- user: Associative array that contains the user data.
+- references: Associative array that contains the references data.  
