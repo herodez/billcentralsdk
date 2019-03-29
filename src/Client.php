@@ -68,14 +68,6 @@ class Client
             throw new \InvalidArgumentException('Data parameters must be an array');
         }
         
-        if (!isset($data['bill'])) {
-            throw new \InvalidArgumentException('Data bill parameters must be exist');
-        }
-        
-        if (!isset($data['company_id'])) {
-            throw new \InvalidArgumentException('Data company_id parameters must be exist');
-        }
-        
         $response =$this->client->makeRequest('POST', self::NEW_TRANSACTION, $data);
         return new BillTransaction($response, $this->client);
     }
