@@ -6,7 +6,7 @@ The Bill-Central SDK for PHP is a library with powerful features that enable PHP
 
 ## Examples
 
-The following examples demonstrate how you would accomplish common tasks with the Facebook SDK for PHP.
+The following examples demonstrate how you would accomplish common tasks with the Bill-Central SDK for PHP.
 
 - **Create a Bill-Central client**
   - [Bill-Central Client](./examples/bc_client.md)
