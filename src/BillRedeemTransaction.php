@@ -5,7 +5,7 @@ namespace BillCentralSDK;
 
 use BillCentralSDK\HttpClients\BillCentralGuzzleClient;
 
-class BillTransaction
+class BillRedeemTransaction
 {
     /**
      * @var bool transaction in completed.
@@ -108,7 +108,7 @@ class BillTransaction
         }
         
         $data = array_merge(['transaction_code' => $this->transactionCode],  $data);
-        $response = $this->client->makeRequest('POST', Client::COMPETED_TRANSACTION, $data);
+        $response = $this->client->makeRequest('POST', Client::COMPETED_BILL_REDEEM_TRANSACTION, $data);
         
         if ($response->getStatus() === BillCentralResponse::STATUS_TRANSACTION_OK) {
             $this->completed = true;
